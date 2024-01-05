@@ -127,7 +127,7 @@ class Aligner:
             # Optionally replace read headers with integers
             f"{rename_cmd}"
             # Stream remaining records into fastq files
-            f" | samtools fastq --threads 4 -c 6 -0 '{fastq_out_path}'"
+            f" | samtools fastq --threads {threads} -c 6 -0 '{fastq_out_path}'"
         )
         return cmd
 
@@ -201,6 +201,6 @@ class Aligner:
             # Optionally replace paired read headers with integers
             f"{rename_cmd}"
             # Stream remaining records into fastq files
-            f" | samtools fastq --threads 4 -c 6 -N -1 '{fastq1_out_path}' -2 '{fastq2_out_path}'"
+            f" | samtools fastq --threads {threads} -c 6 -N -1 '{fastq1_out_path}' -2 '{fastq2_out_path}'"
         )
         return cmd
